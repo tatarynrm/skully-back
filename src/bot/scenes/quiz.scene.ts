@@ -306,9 +306,6 @@ export class QuizScene {
 
     await ctx.reply(resultText, {
       parse_mode: 'HTML',
-      ...Markup.inlineKeyboard([
-        [Markup.button.callback('🏆 Рейтинг гравців', 'qz_ranking_final')],
-      ]),
     });
 
     await ctx.scene.leave();
@@ -374,7 +371,6 @@ export class QuizScene {
       ...Markup.inlineKeyboard([
         [Markup.button.callback('📂 Обрати категорію', 'qz_pick_category')],
         [Markup.button.callback('🔀 Випадкова категорія', 'qz_random_category')],
-        [Markup.button.callback('🏆 Рейтинг гравців', 'qz_ranking')],
         [Markup.button.callback('↩️ Вийти', 'qz_exit')],
       ]),
     });
@@ -492,9 +488,6 @@ export class QuizScene {
 
     await ctx.reply(text, {
       parse_mode: 'HTML',
-      ...Markup.inlineKeyboard([
-        [Markup.button.callback('🏆 Рейтинг гравців', 'qz_ranking_static')],
-      ]),
     });
   }
 
