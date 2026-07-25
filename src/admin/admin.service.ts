@@ -247,7 +247,7 @@ export class AdminService {
   }
 
   async triggerManualGiveaway() {
-    const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@test_roman_noris');
+    const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@touch_dating');
 
     // Pick up to 3 random eligible winners
     const res = await this.db.query(`

@@ -39,9 +39,9 @@ export class GiveawayService implements OnModuleInit, OnModuleDestroy {
 
     try {
       const now = new Date();
-      // Format current time in Europe/Kiev timezone
+      // Format current time in Europe/Kyiv timezone
       const formatter = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'Europe/Kiev',
+        timeZone: 'Europe/Kyiv',
         year: 'numeric',
         month: '2-digit',
         day: '2-digit',
@@ -110,7 +110,7 @@ export class GiveawayService implements OnModuleInit, OnModuleDestroy {
         [Markup.button.url('🤖 Перейти в бот', `https://t.me/${botUsername}`)]
       ]);
 
-      const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@test_roman_noris');
+      const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@touch_dating');
       const invitationMessage = 
         `🏆 <b>Щоденний розіграш ⭐ ПРЕМІУМУ!</b> 🏆\n\n` +
         `Бажаєте отримати ⭐ <b>Преміум підписку на 2 дні</b> абсолютно безкоштовно?\n\n` +
@@ -134,7 +134,7 @@ export class GiveawayService implements OnModuleInit, OnModuleDestroy {
       // Get up to 3 random winners from the Redis set using SRANDMEMBER
       const winnerIdsStr = await this.redis.srandmember(queueKey, 3);
       
-      const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@test_roman_noris');
+      const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@touch_dating');
 
       if (!winnerIdsStr || winnerIdsStr.length === 0) {
         const noParticipantsMessage = 

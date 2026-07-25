@@ -213,7 +213,7 @@ export class BotUpdate {
 
   @Hears('📅 Щоденний (Premium)')
   async onDailyGiveaway(@Ctx() ctx: WizardContext) {
-    const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@test_roman_noris');
+    const channel = this.configService.get<string>('GIVEAWAY_CHANNEL', '@touch_dating');
     const channelClean = channel.startsWith('@') ? channel.slice(1) : channel;
     const channelUrl = `https://t.me/${channelClean}`;
 
@@ -901,7 +901,7 @@ export class BotUpdate {
     // Get current Kyiv date string
     const now = new Date();
     const formatter = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'Europe/Kiev',
+      timeZone: 'Europe/Kyiv',
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',

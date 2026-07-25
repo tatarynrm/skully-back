@@ -177,7 +177,7 @@ export class QuizRepository {
     const sql = `
       SELECT * FROM quiz_daily_sessions
       WHERE user_id = $1
-        AND session_date = CURRENT_DATE AT TIME ZONE 'Europe/Kiev'
+        AND session_date = CURRENT_DATE AT TIME ZONE 'Europe/Kyiv'
       LIMIT 1;
     `;
     const res = await this.db.query<QuizDailySession>(sql, [userId]);
@@ -195,7 +195,7 @@ export class QuizRepository {
   ): Promise<QuizDailySession> {
     const sql = `
       INSERT INTO quiz_daily_sessions (user_id, session_date, question1_id, question2_id, category_id)
-      VALUES ($1, CURRENT_DATE AT TIME ZONE 'Europe/Kiev', $2, $3, $4)
+      VALUES ($1, CURRENT_DATE AT TIME ZONE 'Europe/Kyiv', $2, $3, $4)
       ON CONFLICT (user_id, session_date) DO NOTHING
       RETURNING *;
     `;
@@ -216,7 +216,7 @@ export class QuizRepository {
       UPDATE quiz_daily_sessions
       SET both_correct = $2, total_time_seconds = $3, premium_awarded = $4
       WHERE user_id = $1
-        AND session_date = CURRENT_DATE AT TIME ZONE 'Europe/Kiev';
+        AND session_date = CURRENT_DATE AT TIME ZONE 'Europe/Kyiv';
     `;
     await this.db.query(sql, [userId, bothCorrect, totalTimeSeconds, premiumAwarded]);
   }
